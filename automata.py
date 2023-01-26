@@ -1,25 +1,40 @@
-state1 = 0
-state2 = 0
-state3 = 0
-tState = 0
-firstState = 1
-finalState = 3
-symbol1 = ''
-symbol2 = ''
+state = 0
+transition = 0
+symbol = ''
+word = ''
+result = ''
 
-automata={
-    state1: 1,
-    symbol1: '0',
-    tState: 2,
 
-    state2: 2,
-    symbol2: '0',
-    tState: [2,3]
+automata=[{
+    state: 1,
+    symbol: '0',
+    transition: 2
+},
+{
+    state: 2,
+    symbol: '0',
+    transition: 2
+},
+{
+    state: 2,
+    symbol: '1',
+    transition: 3
 }
+]
 
 def automataTransition(word):
+    c = 0
     for i in word:
-        if i == automata.state1:
-            pass
+        for j in automata:
+            c += 1
+            if i == automata[c].state:
+                result += i
+                print('letter' + word[i] + ' accepted, state: ' + c)
+            else:
+                print('word not accepted')
+                exit()
 
-word = input('ingresa una palabra')
+
+word = input('tell me a word')
+automataTransition(word)
+print('your word is: ' + word)
