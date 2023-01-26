@@ -4,7 +4,6 @@ symbol = ''
 word = ''
 result = ''
 
-
 automata=[{
     state: 1,
     symbol: '0',
@@ -22,15 +21,16 @@ automata=[{
 }]
 
 def automataTransition(word):
+    result = ''
     for i in word:
         for j in range(len(automata)):
-            if i == str(automata[j][state]) and str(automata[j][transition]) != j:
+            if i == str(automata[j][symbol]) and str(automata[j][transition]) != j:
                 result += i
-                print('letter' + word[i] + ' accepted, state: ' + j)
+                print('letter' + word[j] + ' accepted, state: ' + str(j))
             else:
                 print('word not accepted')
                 exit()
-
+    
 
 word = input('tell me a word')
 automataTransition(word)
