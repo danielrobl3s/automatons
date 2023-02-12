@@ -14,9 +14,10 @@ def automataTransition(word):
         keys = list(i.transitions.keys())
         print(keys)
 
-        for w in word:
+        for w in range(len(word)):
             if word[w] in str(keys):
                 symbol += word[w]
+                print('added symbol: ' + word[w])
             elif i.stat == 'final':
                 print('done!')
                 exit()
