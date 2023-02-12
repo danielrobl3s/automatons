@@ -23,4 +23,14 @@ automata = [{
     fstate: 3,
 }]
 
-print(automata)
+def automataTransition(word):
+    for i in word:
+        for j in len(automata):
+            if str(automata[j][transition]) == i:
+                symbol += i
+                print('symbol: ' + i)
+            else: 
+                exit()
+
+word = input('Put a word from this alphabet: 0 and 1: ')
+automataTransition(word)
